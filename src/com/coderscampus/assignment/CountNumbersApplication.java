@@ -13,7 +13,7 @@ public class CountNumbersApplication {
 	public static void main(String[] args) {
 		Assignment8 assignment8 = new Assignment8();
 		List<Integer> allNumbers = Collections.synchronizedList(new ArrayList<>(1000));
-		List<CompletableFuture<Void>> tasks = Collections.synchronizedList(new ArrayList<>(1000));
+		List<CompletableFuture<Void>> tasks = new ArrayList<>(1000);
 		ExecutorService executor = Executors.newCachedThreadPool();
 
 		for (int i = 0; i < 1000; i++) {
@@ -25,7 +25,6 @@ public class CountNumbersApplication {
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
